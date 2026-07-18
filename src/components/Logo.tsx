@@ -11,12 +11,12 @@ export default function Logo({ variant = 'dark', className = '' }: LogoProps) {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <div className="grid leading-none">
-        <div className={`font-serif text-[2.2rem] tracking-tight ${base}`}>
+        <div className={`font-serif text-[2.2rem] leading-none tracking-tight ${base}`}>
           <span>colo</span>
           <span className={accent}>r</span>
           <span>ed</span>
         </div>
-        <div className={`mt-1 text-[0.7rem] font-medium uppercase tracking-[0.12em] ${sub}`}>
+        <div className={`mt-0.5 text-[0.7rem] font-medium uppercase tracking-[0.12em] ${sub}`}>
           Interior Designs
         </div>
       </div>
