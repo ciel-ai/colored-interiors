@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream-50 text-ink font-sans;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  @apply bg-maroon-600 text-cream-50;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply text-xs sm:text-sm tracking-widest2 uppercase text-maroon-600 font-medium;
+  }
+
+  .heading-xl {
+    @apply font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.08] text-ink;
+  }
+
+  .heading-lg {
+    @apply font-serif text-3xl sm:text-4xl leading-tight text-ink;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-maroon-600 px-7 py-3.5 text-sm font-medium tracking-wide text-cream-50 transition-all duration-300 hover:bg-ink hover:-translate-y-0.5 hover:shadow-soft;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 bg-transparent px-7 py-3.5 text-sm font-medium tracking-wide text-ink transition-all duration-300 hover:border-ink hover:bg-ink hover:text-cream-50;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-ink/10 bg-white/70 backdrop-blur-sm;
+  }
+}
+
+/* custom scrollbar for horizontal strips */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(122, 21, 34, 0.35);
+  border-radius: 999px;
+}
