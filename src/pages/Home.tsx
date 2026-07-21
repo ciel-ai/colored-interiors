@@ -68,15 +68,6 @@ export default function Home() {
             </Link>
           </motion.div>
         </div>
-
-        <motion.div
-          className="absolute bottom-8 left-1/2 z-10 hidden flex-col items-center gap-2 sm:flex"
-          animate={{ y: [0, 10, 0], x: '-50%' }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-        >
-          <span className="text-[10px] uppercase tracking-widest2 text-cream-100/70">Scroll</span>
-          <span className="h-9 w-[1px] bg-cream-100/50" />
-        </motion.div>
       </section>
 
       {/* ABOUT / STATS */}
