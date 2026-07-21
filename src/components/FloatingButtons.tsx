@@ -9,9 +9,9 @@ export default function FloatingButtons() {
     <>
       {/* Right-edge vertical "Get Quote" tab */}
       <motion.div
-        className="fixed right-0 top-1/2 z-40 -translate-y-1/2"
-        initial={{ x: 60, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
+        className="fixed right-0 top-1/2 z-40"
+        initial={{ x: 60, opacity: 0, y: '-50%' }}
+        animate={{ x: 0, opacity: 1, y: '-50%' }}
         transition={{ delay: 0.6, duration: 0.5 }}
       >
         <Link
@@ -46,9 +46,9 @@ export default function FloatingButtons() {
 
       {/* Bottom edge, horizontally centered: Call Us */}
       <motion.div
-        className="fixed bottom-5 left-1/2 z-40 -translate-x-1/2"
-        initial={{ y: 40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        className="fixed bottom-5 left-1/2 z-40"
+        initial={{ y: 40, opacity: 0, x: '-50%' }}
+        animate={{ y: 0, opacity: 1, x: '-50%' }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
         <a

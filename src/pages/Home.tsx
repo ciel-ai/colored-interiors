@@ -70,8 +70,8 @@ export default function Home() {
         </div>
 
         <motion.div
-          className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"
-          animate={{ y: [0, 10, 0] }}
+          className="absolute bottom-8 left-1/2 z-10 hidden flex-col items-center gap-2 sm:flex"
+          animate={{ y: [0, 10, 0], x: '-50%' }}
           transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
         >
           <span className="text-[10px] uppercase tracking-widest2 text-cream-100/70">Scroll</span>
