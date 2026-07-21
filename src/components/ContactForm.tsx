@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+const FORM_ENDPOINT = 'https://formspree.io/f/mbdnkoaz'
+
 const locations = ['Bengaluru', 'Chennai', 'Hyderabad', 'Pune', 'Mumbai', 'Other']
 const propertyTypes = ['Apartment', 'Villa', 'Independent House', 'Row House', 'Penthouse', 'Office / Commercial']
 const requirements = [
@@ -16,26 +18,47 @@ const requirements = [
 const inputClass =
   'w-full rounded-lg border border-ink/10 bg-ink/[0.04] px-4 py-3.5 text-sm text-ink placeholder:text-ink/35 outline-none transition-colors focus:border-maroon-600 focus:bg-white'
 
+type Status = 'idle' | 'submitting' | 'success' | 'error'
+
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState('')
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const form = new FormData(e.currentTarget)
-    if (!form.get('agree')) {
+    const form = e.currentTarget
+    const data = new FormData(form)
+
+    if (!data.get('agree')) {
       setError('Please accept the terms and conditions to continue.')
       return
     }
+
     setError('')
-    // NOTE: wire this up to your backend / email service (e.g. Formspree, an API route) in production.
-    setSubmitted(true)
+    setStatus('submitting')
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+
+      if (res.ok) {
+        setStatus('success')
+        form.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
     <div className="card-surface relative overflow-hidden p-8 sm:p-10">
       <AnimatePresence mode="wait">
-        {submitted ? (
+        {status === 'success' ? (
           <motion.div
             key="success"
             initial={{ opacity: 0, y: 10 }}
@@ -50,7 +73,7 @@ export default function ContactForm() {
               We've received your request. One of our design consultants will reach out on WhatsApp
               within 24 hours with your customised quote.
             </p>
-            <button onClick={() => setSubmitted(false)} className="btn-outline mt-8">
+            <button onClick={() => setStatus('idle')} className="btn-outline mt-8">
               Submit Another Request
             </button>
           </motion.div>
@@ -67,6 +90,8 @@ export default function ContactForm() {
             <p className="text-sm leading-relaxed text-ink/60">
               Reach out to us immediately to arrange for a customised quotation from one of our assessors.
             </p>
+
+            <input type="hidden" name="_subject" value="New Design Consultation Request — Colored Interiors" />
 
             <div className="grid gap-5 pt-2 sm:grid-cols-2">
               <label className="block">
@@ -123,9 +148,14 @@ export default function ContactForm() {
             </label>
 
             {error && <p className="text-sm text-maroon-600">{error}</p>}
+            {status === 'error' && (
+              <p className="text-sm text-maroon-600">
+                Something went wrong sending your request. Please try WhatsApp or call us directly instead.
+              </p>
+            )}
 
-            <button type="submit" className="btn-primary w-full">
-              Get Instant Quote
+            <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full disabled:opacity-60">
+              {status === 'submitting' ? 'Sending…' : 'Get Instant Quote'}
             </button>
           </motion.form>
         )}

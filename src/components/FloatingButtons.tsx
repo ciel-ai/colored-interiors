@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
-const WHATSAPP_NUMBER = '911234567890'
-const PHONE_NUMBER = '+911234567890'
+const WHATSAPP_NUMBER = '917845474629'
+const PHONE_NUMBER = '+917845474629'
 
 export default function FloatingButtons() {
   return (

@@ -43,12 +43,20 @@ homepage carousel, and the 40 `moreReviews` are generated from a small
 set of name/quote pools for volume, so several read similarly. Both
 sets should be replaced with the studio's real reviews before launch.
 
-## Things to wire up before launch
+## Contact info
 
-- **Contact form** (`src/components/ContactForm.tsx`) currently only
-  shows a success state locally — connect its `handleSubmit` to a real
-  backend/email service (e.g. an API route, Formspree, etc).
-- **Phone / WhatsApp numbers** are placeholders (`+91 12345 67890`) in
-  `FloatingButtons.tsx`, `Footer.tsx`, and `Contact.tsx` — replace with
-  the studio's real numbers.
-- **Address/email** in `Contact.tsx` and `Footer.tsx` are placeholders.
+Real studio details are wired in across `FloatingButtons.tsx`, `Footer.tsx`,
+and `Contact.tsx`:
+- Phone / WhatsApp: +91 78454 74629
+- Email: Info.coloredinteriors@gmail.com
+- Address: 6, Veshran, Gopinath Gardens, Kanathurreddikuppam, Chennai 603112
+- GSTIN: 33AAVFC8674K1ZN
+
+## Contact form backend
+
+`src/components/ContactForm.tsx` submits to Formspree
+(`https://formspree.io/f/mbdnkoaz`, under the "Colored Interiors" account),
+which emails every submission to Info.coloredinteriors@gmail.com. Notification
+emails always arrive with "Formspree" as the sender name — that isn't
+customisable on the free tier. The subject line is set via the hidden
+`_subject` field in the form.

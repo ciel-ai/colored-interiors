@@ -42,13 +42,13 @@ export default function Footer() {
         <RevealItem>
           <h4 className="text-xs font-semibold uppercase tracking-widest2 text-cream-100/50">Get In Touch</h4>
           <ul className="mt-4 space-y-3 text-sm text-cream-100/80">
-            <li>Bengaluru · Chennai · Hyderabad · Pune</li>
+            <li>6, Veshran, Gopinath Gardens, Kanathurreddikuppam, Chennai 603112</li>
             <li>
-              <a className="hover:text-maroon-400" href="tel:+911234567890">+91 12345 67890</a>
+              <a className="hover:text-maroon-400" href="tel:+917845474629">+91 78454 74629</a>
             </li>
             <li>
-              <a className="hover:text-maroon-400" href="mailto:hello@colored-interiors.com">
-                hello@colored-interiors.com
+              <a className="hover:text-maroon-400" href="mailto:Info.coloredinteriors@gmail.com">
+                Info.coloredinteriors@gmail.com
               </a>
             </li>
           </ul>
@@ -56,8 +56,8 @@ export default function Footer() {
       </RevealGroup>
 
       <div className="border-t border-white/10 py-6">
-        <div className="container-x flex flex-col items-center justify-between gap-3 text-xs text-cream-100/50 sm:flex-row">
-          <p>© {new Date().getFullYear()} colored Interior Designs. All rights reserved.</p>
+        <div className="container-x flex flex-col items-center justify-between gap-2 text-xs text-cream-100/50 sm:flex-row">
+          <p>© {new Date().getFullYear()} colored Interior Designs. All rights reserved. GSTIN: 33AAVFC8674K1ZN</p>
           <p>Designed with care for every home.</p>
         </div>
       </div>

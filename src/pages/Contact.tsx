@@ -2,10 +2,11 @@ import Reveal from '../components/Reveal'
 import ContactForm from '../components/ContactForm'
 
 const details = [
-  { label: 'Studio Address', value: '4th Floor, Design Court, Whitefield, Bengaluru 560066' },
-  { label: 'Phone', value: '+91 12345 67890' },
-  { label: 'Email', value: 'hello@colored-interiors.com' },
+  { label: 'Studio Address', value: '6, Veshran, Gopinath Gardens, Kanathurreddikuppam, Chennai 603112' },
+  { label: 'Phone', value: '+91 78454 74629' },
+  { label: 'Email', value: 'Info.coloredinteriors@gmail.com' },
   { label: 'Studio Hours', value: 'Mon – Sat, 10:00 AM – 7:00 PM' },
+  { label: 'GSTIN', value: '33AAVFC8674K1ZN' },
 ]
 
 export default function Contact() {
@@ -33,14 +34,14 @@ export default function Contact() {
 
           <div className="flex gap-3 pt-2">
             <a
-              href="https://wa.me/911234567890"
+              href="https://wa.me/917845474629"
               target="_blank"
               rel="noreferrer"
               className="btn-outline"
             >
               Message on WhatsApp
             </a>
-            <a href="tel:+911234567890" className="btn-outline">
+            <a href="tel:+917845474629" className="btn-outline">
               Call Now
             </a>
           </div>
